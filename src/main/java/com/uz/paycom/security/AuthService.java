@@ -75,7 +75,7 @@ public class AuthService implements UserDetailsService {
             codeService.sendToProvider(request.getPhoneNumber(), users.getCode().toString());
 
                 userRepository.save(users);
-                
+
                 return new ApiResponse("Foydalanuvchi ro'yxatdan o'tdi!", true);
 
 

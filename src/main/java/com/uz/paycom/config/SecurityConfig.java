@@ -92,7 +92,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/csrf",
                         "/webjars/**")
                 .permitAll()
-                .antMatchers("/api/active", "/api/add", "/api/login").permitAll()
+                .antMatchers("/api/active", "/api/add", "/api/login", "/api/setting").permitAll()
                 .antMatchers("/api/**").authenticated();
 //                .antMatchers("/api/test", "/api/get", "api/human").authenticated();
 
