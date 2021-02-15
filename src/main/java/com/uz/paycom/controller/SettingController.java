@@ -38,7 +38,7 @@ public class SettingController {
         return ResponseEntity.ok(response);
     }
 
-   
+
     @DeleteMapping("/set/delete/{id}")
     public HttpEntity<?> delete(@PathVariable Integer id){
         ApiResponse response = settingService.delete(id);
