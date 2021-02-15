@@ -72,11 +72,10 @@ public class AuthService implements UserDetailsService {
             /**
              * userni telefoniga active codni junatadi
              */
-//            codeService.sendToProvider(request.getPhoneNumber(), users.getCode().toString());
+            codeService.sendToProvider(request.getPhoneNumber(), users.getCode().toString());
 
                 userRepository.save(users);
-
-//            delete(request.getPhoneNumber());
+                
                 return new ApiResponse("Foydalanuvchi ro'yxatdan o'tdi!", true);
 
 
