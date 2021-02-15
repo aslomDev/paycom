@@ -16,6 +16,7 @@ public class SettingController {
 
     @Autowired private SettingService settingService;
 
+    @CrossOrigin(origins = "paycom-2.herokuapp.com")
     @PostMapping("/setting")
     public HttpEntity<?> addSettings(@RequestBody Settings settings){
         ApiResponse response = settingService.addSetting(settings);
@@ -23,18 +24,21 @@ public class SettingController {
     }
 
 
+    @CrossOrigin(origins = "paycom-2.herokuapp.com")
     @GetMapping("/setting")
     public HttpEntity<?> getAll(){
         ApiResponse response = settingService.getAll();
         return ResponseEntity.ok(response);
     }
 
+    @CrossOrigin(origins = "paycom-2.herokuapp.com")
     @PutMapping("/edset/{id}")
     public HttpEntity<?> edit(@PathVariable Integer id, @RequestBody Settings settings){
         ApiResponse response = settingService.editSettings(id, settings);
         return ResponseEntity.ok(response);
     }
 
+    @CrossOrigin(origins = "paycom-2.herokuapp.com")
     @DeleteMapping("/delete/{id}")
     public HttpEntity<?> delete(@PathVariable Integer id){
         ApiResponse response = settingService.delete(id);

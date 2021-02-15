@@ -36,7 +36,7 @@ public class UserController {
     }
 
 
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin(origins = "paycom-2.herokuapp.com")
     @PostMapping("/add")
     public ResponseEntity<?> addUser(@Valid @RequestBody Users user) throws InterruptedException {
         ApiResponse response = authService.register(user);
@@ -51,7 +51,7 @@ public class UserController {
 
     }
 
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin(origins = "paycom-2.herokuapp.com")
     @PostMapping("/active")
     public ResponseEntity<?> ActivateUser(@Valid @RequestBody Users user){
         ApiResponse response = authService.activateUser(user);
@@ -66,7 +66,7 @@ public class UserController {
 
     }
 
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin(origins = "paycom-2.herokuapp.com")
     @PostMapping("/login")
     public HttpEntity<?> login(@Valid @RequestBody Users user){
         boolean login = userService.login(user);
@@ -80,6 +80,7 @@ public class UserController {
 
     }
 
+    @CrossOrigin(origins = "paycom-2.herokuapp.com")
     @GetMapping("/users")
     public HttpEntity<?> getAllUser(){
         ApiResponse response = userService.getAllUser();
