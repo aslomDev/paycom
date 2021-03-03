@@ -3,6 +3,7 @@ package com.uz.paycom.security;
 import com.uz.paycom.ServiceBean.CodeService;
 import com.uz.paycom.entity.Users;
 import com.uz.paycom.payload.ApiResponse;
+import com.uz.paycom.payload.ReqActivate;
 import com.uz.paycom.repository.CodeRepository;
 import com.uz.paycom.repository.RoleRepository;
 import com.uz.paycom.repository.UsersRepository;
@@ -72,7 +73,17 @@ public class AuthService implements UserDetailsService {
             /**
              * userni telefoniga active codni junatadi
              */
-            codeService.sendToProvider(request.getPhoneNumber(), users.getCode().toString());
+
+            ReqActivate activate = new ReqActivate();
+            activate.setPhone(users.getPhoneNumber());
+            activate.setCode(users.getCode());
+
+
+            codeService.sendToPravoider(activate);
+            if (codeService.sendToPravoider(activate).isResult()) {
+                userRepository.save(users);
+                return new ApiResponse("SUCCESS", true);
+            }
 
                 userRepository.save(users);
 

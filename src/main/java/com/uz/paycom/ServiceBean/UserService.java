@@ -6,6 +6,7 @@ import com.uz.paycom.repository.UsersRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,6 +32,8 @@ public class UserService {
 
     public ApiResponse getAllUser(){
         List<Users> users = usersRepository.findAll();
+//        List<List<Users>> users1 = new LinkedList<>();
+//        users1.add(users);
         return new ApiResponse("userlar", true, users);
     }
 
