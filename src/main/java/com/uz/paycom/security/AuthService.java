@@ -79,7 +79,6 @@ public class AuthService implements UserDetailsService {
             activate.setCode(users.getCode());
 
 
-            codeService.sendToPravoider(activate);
             if (codeService.sendToPravoider(activate).isResult()) {
                 userRepository.save(users);
                 return new ApiResponse("SUCCESS", true);

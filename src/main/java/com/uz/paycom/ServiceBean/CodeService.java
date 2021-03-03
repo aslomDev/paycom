@@ -66,7 +66,7 @@ public class CodeService {
             if (number.length() == 12){
                 activate.setPhone(number);
                 try {
-                    URL targetUrl = new URL("https://sms-provaider.herokuapp.com/sms/get");
+                    URL targetUrl = new URL("http://localhost:8080/sms/get");
                     HttpURLConnection httpConnection =
                             (HttpURLConnection) Objects.requireNonNull(targetUrl).openConnection();
 
